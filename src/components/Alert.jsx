@@ -1,6 +1,5 @@
 // Start coding here
 export default function Alert ({ type, message }){
-    function getStyle(type) {
       let style = {};
       if (type === "error") {
         style = {
@@ -23,11 +22,8 @@ export default function Alert ({ type, message }){
           color: "#155724",
         };
       }
-      return style;
-    };
-  
     return (
-      <div style={{ ...getStyle(type), padding: "10px", borderRadius: "5px"}}>
+      <div style={{ ...style, padding: "10px", borderRadius: "5px"}}>
         <span>{message}</span>
       </div>
     );
