@@ -1,33 +1,45 @@
 // Start coding here
-export default function Alert ({ type, message }){
-      let style = {};
-      if (type === "error") {
-        style = {
-          backgroundColor: "#f8d7da",
-          color: "#721c24",
-        };
-      } else if (type === "warning") {
-        style = {
-          backgroundColor: "#fff3cd",
-          color: "#856404",
-        };
-      } else if (type === "info") {
-        style = {
-          backgroundColor: "#d1ecf1",
-          color: "#0c5460",
-        };
-      } else if (type === "success") {
-        style = {
-          backgroundColor: "#d4edda",
-          color: "#155724",
-        };
-      }
-    return (
-      <div style={{ ...style, padding: "10px", borderRadius: "5px"}}>
-        <span>{message}</span>
-      </div>
-    );
-  };
-  
+import errorIcon from "../assets/error.svg";
+import warnIcon from "../assets/warning.svg";
+import infoIcon from "../assets/info.svg";
+import succIcon from "../assets/success.svg";
+export default function Alert({ type, message }) {
+  let style = {};
+  let icon;
+  if (type === "error") {
+    style = {
+      backgroundColor: "#F7C7C9",
+    };
+    icon = <img src={errorIcon} alt="Error Icon" />;
+  } else if (type === "warning") {
+    style = {
+      backgroundColor: "#F8D9C9",
+    };
+    icon = <img src={warnIcon} alt="Error Icon" />;
+  } else if (type === "info") {
+    style = {
+      backgroundColor: "#F8EBCA",
+    };
+    icon = <img src={infoIcon} alt="Error Icon" />;
+  } else if (type === "success") {
+    style = {
+      backgroundColor: "#D0F7CF",
+    };
+    icon = <img src={succIcon} alt="Error Icon" />;
+  }
 
-
+  return (
+    <div
+      style={{
+        ...style,
+        padding: "10px",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between"
+      }}
+    >
+      {icon}
+      <span>{message}</span>
+    </div>
+  );
+}
